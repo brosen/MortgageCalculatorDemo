@@ -1,6 +1,9 @@
 ﻿import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { actionCreators } from '../store/Counter';
 
-export default class MortgageSummary extends Component {
+export class MortgageSummary extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +36,8 @@ export default class MortgageSummary extends Component {
     });
   }
   render() {
+    console.log(this.props);
+    console.log(this.state);
     return (
       <div>
         <h1>Mortgage Calculator Summary</h1>
@@ -52,3 +57,8 @@ export default class MortgageSummary extends Component {
     );
   }
 }
+
+export default connect(
+  state => state.amount,
+  dispatch => bindActionCreators(actionCreators, dispatch)
+)(MortgageSummary);
