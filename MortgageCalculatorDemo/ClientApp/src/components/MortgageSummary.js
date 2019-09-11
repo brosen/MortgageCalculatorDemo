@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { actionCreators } from '../store/Counter';
+import { actionCreators } from '../store/MortgageSummary';
 
 export class MortgageSummary extends Component {
   constructor(props) {
@@ -12,6 +12,8 @@ export class MortgageSummary extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+
+    this.onChangeLoanAmount = this.onChangeLoanAmount.bind(this);
   }
 
   handleChange(e) {
@@ -35,14 +37,18 @@ export class MortgageSummary extends Component {
       items: newItems
     });
   }
+
+  onChangeLoanAmount(e) {
+    this.props.changeLoanAmount(e.target.value);
+  }
+
   render() {
-    console.log(this.props);
-    console.log(this.state);
+    let loanAmount = this.props.mortgageSummary.loanAmount;
     return (
       <div>
         <h1>Mortgage Calculator Summary</h1>
-        <div>Loan Amount <input type="text" value={this.state.value} onChange={this.handleChange} /></div>
-        <div>Annual Intrest Rate <input type="text" value={this.state.value} onChange={this.handleChange} /></div>
+        <div>Loan Amount <input type="text" value={loanAmount} onChange={this.onChangeLoanAmount} /></div>
+        <div>Annual Intrest Rate <input type="text" value={loanAmount} onChange={this.onChangeLoanAmount} /></div>
         <div>Life loan (in years) <input type="text" value={this.state.value} onChange={this.handleChange} /></div>
         <div>Number of payments per year <input type="text" value={this.state.value} onChange={this.handleChange} /></div>
         <div>Total number of payments <input type="text" value={this.state.value} onChange={this.handleChange} /></div>
@@ -59,6 +65,6 @@ export class MortgageSummary extends Component {
 }
 
 export default connect(
-  state => state.amount,
+  state => state,
   dispatch => bindActionCreators(actionCreators, dispatch)
 )(MortgageSummary);
