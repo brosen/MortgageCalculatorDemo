@@ -1,5 +1,15 @@
-﻿const CHANGE_LOAN_AMOUNT = 'CHANGE_LOAN_AMOUNT';
+﻿// import { axiosGet } from './HttpUtility';
+
+const CHANGE_LOAN_AMOUNT = 'CHANGE_LOAN_AMOUNT';
+export const API_ENDPOINT = 'api/SampleData/';
 const initialState = { loanAmount: 0 };
+
+/*
+    const url = API_ENDPOINT + 'summary';
+    const response = await axiosGet(url);
+    // const forecasts = await response.json();
+
+ */
 
 export const actionCreators = {
   changeLoanAmount: amount => async (dispatch, getState) => {
