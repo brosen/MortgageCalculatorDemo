@@ -26,6 +26,12 @@ namespace MortgageCalculatorDemo.Controllers
             });
         }
 
+        [HttpGet("summary")]
+        public int Summary()
+        {
+            return 18;
+        }
+
         public class WeatherForecast
         {
             public string DateFormatted { get; set; }
