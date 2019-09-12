@@ -1,17 +1,17 @@
 ﻿// import { axiosGet } from './HttpUtility';
 
 const CHANGE_LOAN_AMOUNT = 'CHANGE_LOAN_AMOUNT';
-const CHANGE_INTREST_RATE = 'CHANGE_INTREST_RATE';
+const CHANGE_INTEREST_RATE = 'CHANGE_INTEREST_RATE';
 const CHANGE_LIFE_OF_LOAN = 'CHANGE_LIFE_OF_LOAN';
 const CHANGE_PAYMENTS_PER_YEAR = 'CHANGE_PAYMENTS_PER_YEAR';
 
 export const API_ENDPOINT = 'api/SampleData/';
 
 const initialState = {
-  loanAmount: 0,
-  intrestRate: 0,
-  lifeOfLoan: 0,
-  paymentsPerYear: 0
+  loanAmount: 500000,
+  interestRate: 7,
+  lifeOfLoan: 30,
+  paymentsPerYear: 12
 };
 
 /*
@@ -28,9 +28,9 @@ export const actionCreators = {
       amount: amount
     });
   },
-  changeIntrestRate: rate => async (dispatch, getState) => {
+  changeInterestRate: rate => async (dispatch, getState) => {
     dispatch({
-      type: CHANGE_INTREST_RATE,
+      type: CHANGE_INTEREST_RATE,
       rate: rate
     });
   },
@@ -59,8 +59,8 @@ export const reducer = (state, action) => {
     return { ...state, loanAmount: action.amount };
   }
 
-  if (action.type === CHANGE_INTREST_RATE) {
-    return { ...state, intrestRate: action.rate };
+  if (action.type === CHANGE_INTEREST_RATE) {
+    return { ...state, interestRate: action.rate };
   }
 
   if (action.type === CHANGE_LIFE_OF_LOAN) {
