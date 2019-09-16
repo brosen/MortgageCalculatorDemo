@@ -4,12 +4,14 @@ import { routerReducer, routerMiddleware } from 'react-router-redux';
 import * as Counter from './Counter';
 import * as WeatherForecasts from './WeatherForecasts';
 import * as MortgageSummary from './MortgageSummary';
+import * as Global from './Global';
 
 export default function configureStore(history, initialState) {
   const reducers = {
     counter: Counter.reducer,
     weatherForecasts: WeatherForecasts.reducer,
-    mortgageSummary: MortgageSummary.reducer
+    mortgageSummary: MortgageSummary.reducer,
+    global: Global.reducer
   };
 
   const middleware = [

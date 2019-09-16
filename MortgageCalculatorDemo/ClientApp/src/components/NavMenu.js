@@ -24,6 +24,11 @@ export default props => (
             <Glyphicon glyph='road' /> Mortgage Calculator Summary
               </NavItem>
         </LinkContainer>
+        <LinkContainer to={'/global'}>
+          <NavItem>
+            <Glyphicon glyph='road' /> Global
+              </NavItem>
+        </LinkContainer>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

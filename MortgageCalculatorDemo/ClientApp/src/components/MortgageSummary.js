@@ -8,11 +8,15 @@ export class MortgageSummary extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeLoanAmount = this.onChangeLoanAmount.bind(this);
-    this.onChangeInterestRate = this.onChangeInterestRate.bind(this);
-    this.onChangeLifeOfLoan = this.onChangeLifeOfLoan.bind(this);
-    this.onChangePaymentsPerYear = this.onChangePaymentsPerYear.bind(this);
-    this.CalculatePaymentsPerPeriod = this.CalculatePaymentsPerPeriod.bind(this);
+    [
+      'onChangeLoanAmount',
+      'onChangeInterestRate',
+      'onChangeLifeOfLoan',
+      'onChangePaymentsPerYear',
+      'CalculatePaymentsPerPeriod'
+    ].forEach(func => {
+      this[func] = this[func].bind(this);
+    });
   }
 
   onChangeLoanAmount(e) {
