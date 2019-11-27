@@ -16,7 +16,9 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "rimraf": "^2.6.2",
-    "moment": "^2.24.0"
+    "moment": "2.24.0",
+    "react-moment": "0.9.2",
+    "react-day-picker": "7.3.2" 
   },
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
